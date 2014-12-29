@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- See http://logging.apache.org/log4j/2.x/ for additional information -->
 <Configuration status="WARN">
 	<Apppenders>
 		<Console name="console" target="SYSTEM_OUT">
@@ -7,8 +8,12 @@
 		</Console>
 <!-- 		Other appenters like File and JDBC can be added here -->
 	</Apppenders>
+<!-- 	Configure all required loggers here -->
 	<Loggers>
-		<Root level="DEBUG" aditivity="false">
+	    <Logger name="org.springframework.web" level="DEBUG" additivity="false">
+	        <AppenderRef ref="console" />
+	    </Logger>
+		<Root level="DEBUG" additivity="false">
 			<AppenderRef ref="console" />
 		</Root>
 	</Loggers>
